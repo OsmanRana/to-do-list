@@ -15,23 +15,34 @@ main.appendChild(div);
 
 function addTask (){
     const taskToAddValue = taskToAdd.value;
-    const ul = document.createElement('ul');
-    ul.setAttribute("id", "task-ul")
-    const li = document.createElement('li');
-    li.classList = "movingLi"
-    li.innerText = taskToAddValue;
-    const button = document.createElement('button')
-    button.classList =  "btn-remove";
-    button.innerText = "Remove";
-    li.appendChild(button);
-    ul.appendChild(li)    
-    div.appendChild(ul);
+    const newTaskUl = document.createElement('ul');
+    newTaskUl.setAttribute("id", "new-task-ul")
+    const newTaskLi = document.createElement('li');
+    newTaskLi.innerText = taskToAddValue;
+
+    const removeButton = document.createElement('button');
+    removeButton.setAttribute("id", "btn-remove");
+    removeButton.innerText = "Remove";
+
+    const startButton = document.createElement('button');
+    startButton.classList =  "btn-start";
+    startButton.innerText = "Start";
+
+    newTaskLi.appendChild(removeButton);
+    newTaskLi.appendChild(startButton);
+    newTaskUl.appendChild(newTaskLi);    
+    div.appendChild(newTaskUl);
     taskToAdd.value = ""
 
-    button.addEventListener('click', function(){
-        ul.removeChild(li)
-    })
-  
+    startButton.addEventListener('click', function(){
+        newTaskUl.removeChild(newTaskLi);
+        const inProgressUl = document.createElement('ul');
+        inProgressUl.setAttribute("id", "in-progress-ul");
+        const inProgressLi = document.createElement('li');
+        inProgressLi.innerText = newTaskLi.childNodes[0].data;
+        inProgressUl.appendChild(inProgressLi)
+        div.appendChild(inProgressUl)
+    }) 
 }
 let isShow = true;
 
