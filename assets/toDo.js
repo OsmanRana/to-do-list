@@ -64,8 +64,7 @@ function addTask (){
             inProgressUl.removeChild(inProgressLi);
             const completedUl = document.createElement("ul");
             const completedLi = document.createElement("li");
-            completedLi.innterText = inProgressLi.innterText;
-            console.dir(inProgressLi)
+            completedLi.innerText = inProgressLi.childNodes[0].data;
             completedUl.appendChild(completedLi);
             completedDiv.appendChild(completedUl);
         })
