@@ -1,8 +1,11 @@
 const main = document.getElementById('main');
-main.innerHTML = `<h1>To Do List</h1>
+main.innerHTML = `
+<h1>To Do List</h1>
+<div>
 <input id="task" type="text">
 <button id=btn-add>Add</button>
 <button id=btn-show-hide>Hide</button>
+</div>
 `
 const taskToAdd = document.getElementById('task');
 
@@ -12,7 +15,6 @@ main.appendChild(div);
 
 function addTask (){
     const taskToAddValue = taskToAdd.value;
-   
     const ul = document.createElement('ul');
     ul.setAttribute("id", "task-ul")
     const li = document.createElement('li');
@@ -25,6 +27,7 @@ function addTask (){
     ul.appendChild(li)    
     div.appendChild(ul);
     taskToAdd.value = ""
+
     button.addEventListener('click', function(){
         ul.removeChild(li)
     })
