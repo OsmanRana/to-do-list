@@ -21,10 +21,13 @@ function addTask (){
     const button = document.createElement('button')
     button.classList =  "btn-remove";
     button.innerText = "Remove";
+    li.appendChild(button);
     ul.appendChild(li)    
-    ul.appendChild(button);
     div.appendChild(ul);
     taskToAdd.value = ""
+    button.addEventListener('click', function(){
+        ul.removeChild(li)
+    })
   
 }
 let isShow = true;
