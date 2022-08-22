@@ -1,10 +1,12 @@
 const main = document.getElementById('main');
 main.innerHTML = `
+<div id="main-div">
 <h1>To Do List</h1>
 <div>
 <input id="task" type="text">
 <button id=btn-add>Add</button>
 <button id=btn-show-hide>Hide</button>
+</div>
 </div>
 `
 const taskToAdd = document.getElementById('task');
@@ -14,18 +16,18 @@ div.setAttribute("id", "task-container");
 main.appendChild(div);
 
 const newTaskDiv = document.createElement('div');
-newTaskDiv.innerHTML = `<h3>New Task</h3>`
+newTaskDiv.innerHTML = `<h3>New Task:</h3>`
 const inProgressDiv = document.createElement('div');
-inProgressDiv.innerHTML = `<h3>Task In Progress</h3>`
-const canceledDiv = document.createElement('div');
-canceledDiv.innerHTML = `<h3>Canceled Task</h3>`
+inProgressDiv.innerHTML = `<h3>Task In Progress:</h3>`
 const completedDiv = document.createElement('div');
-completedDiv.innerHTML = `<h3>Completed Task</h3>`
+completedDiv.innerHTML = `<h3>Completed Task:</h3>`
+const canceledDiv = document.createElement('div');
+canceledDiv.innerHTML = `<h3>Canceled Task:</h3>`
 
 div.appendChild(newTaskDiv);
 div.appendChild(inProgressDiv);
-div.appendChild(canceledDiv);
 div.appendChild(completedDiv);
+div.appendChild(canceledDiv);
 
 function addTask (){
     const taskToAddValue = taskToAdd.value;
@@ -89,7 +91,7 @@ const showHideButton = document.getElementById("btn-show-hide").addEventListener
         isShow = false;
         buttonText.innerText = "Show"
     }else if(isShow !== true){
-        showHideDiv.style.display = "block"
+        showHideDiv.style.display = "flex"
         isShow = true;
         buttonText.innerText = "Hide"
     }
